@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RongLianImDemo</string>
+
+    <string name="login_btn">Login</string>
+    <string name="send_text">Send Text Example </string>
+    <string name="send_voice">Send Voice Example </string>
+    <string name="send_image">Send Image Example </string>
+    <string name="send_file">Send File Example </string>
+    <string name="target_hint">Target</string>
+
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xwhcoder.ronglianimdemo">
+
+
+    <permission
+        android:name="com.xwhcoder.ronglianimdemo.permission.RECEIVE_MSG"
+        android:protectionLevel="signature" />
+    <permission
+        android:name="com.xwhcoder.ronglianimdemo.permission.INCOMING_CALL"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.xwhcoder.ronglianimdemo.permission.RECEIVE_MSG" />
+    <uses-permission android:name="com.xwhcoder.ronglianimdemo.permission.INCOMING_CALL" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.ChatActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.yuntongxun.ecsdk.ECClientService"
+            android:enabled="true"
+            android:process=":push" />
+
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.CCPReceivers$AlarmReceiver"
+            android:process=":push" />
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.Alarm"
+            android:exported="false"
+            android:process=":push" />
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.CCPReceivers$ConnectionReceiver"
+            android:process=":push">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.yuntongxun.ecsdk.booter.CCPReceivers$BootReceiver"
+            android:process=":push">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name=".service.YuntxNotifyReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.xwhcoder.ronglianimdemo.action.VOIP_CALL" />
+                <action android:name="com.xwhcoder.ronglianimdemo.action.MESSAGE" />
+                <action android:name="com.xwhcoder.ronglianimdemo.action.NOTIFICATION_CLICK" />
+                <action android:name="com.xwhcoder.ronglianimdemo.action.PERSON_VERSION" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

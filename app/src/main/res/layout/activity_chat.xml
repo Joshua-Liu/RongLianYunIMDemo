@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ChatActivity">
+
+    <!-- 登录 -->
+    <LinearLayout
+        android:id="@+id/activity_chat_login_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/activity_chat_login_number_et"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:inputType="phone" />
+
+        <Button
+            android:id="@+id/activity_chat_login_login_btn"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/login_btn" />
+    </LinearLayout>
+
+    <!-- 接收者 -->
+    <EditText
+        android:id="@+id/activity_chat_target_number_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_chat_login_ll"
+        android:hint="@string/target_hint"
+        android:inputType="phone" />
+
+    <!-- 消息输入区域 -->
+    <LinearLayout
+        android:id="@+id/activity_chat_input_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activity_chat_target_number_et"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/activity_chat_send_text_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:text="@string/send_text" />
+
+        <Button
+            android:id="@+id/activity_chat_send_voice_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:text="@string/send_voice" />
+
+        <Button
+            android:id="@+id/activity_chat_send_image_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:text="@string/send_image" />
+
+        <Button
+            android:id="@+id/activity_chat_send_file_btn"
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:text="@string/send_file" />
+
+    </LinearLayout>
+
+</RelativeLayout>
